@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  
+<header>
+  <div class="header_container">
+    <% if flash[:warning] %>
+      <h4><%= flash[:warning] %></h4>
+    <% end %>
+    <h1> 평점 서비스 </h1>
+    <span><a href="/">전체맛집 리스트</a></span>
+    <% if user_signed_in? and current_user.admin == true %>
+      <span><a href="/home/upload">맛집 올리기</a></span>
+      <span><a href="/rails/db">관리페이지</a></span>
+    <% end %>
+    <% if user_signed_in? %> 
+      <span><a href="/users/sign_out" data-method="delete">로그아웃</a></span>
+    <% else %>
+      <span><a href="/users/sign_in">로그인</a></span>
+      <span><a href="/users/sign_up">회원가입</a></span>
+    <% end %>
+  </div>
+</header>
+<hr>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="upload_card">
+    <h1>수정하기</h1>
+    <p class="lead">다시 수정해주세요.</p>
+    <%= form_tag "/home/update", method: "post" do %>
+    <input type="hidden" name="id" value="<%= @adjust.id %>">
+      <div class="form">
+          <input type="text" class="input-form" name="new_title" value="<%= @adjust.title %>" placeholder="식당 이름">
+      </div>
+      <div class="form">
+          <input type="text" class="input-form" name="new_img" value="<%= @adjust.img %>" placeholder="http://...">
+      </div>
+      <div class="form">
+          <textarea type="text" class="input-form" name="new_intro" rows="5" placeholder="간략한 소개"><%= @adjust.intro %></textarea>
+      </div>
+      <button class="button" type="submit">등록하기</button>
+    <% end %>
+ </div>
+</div>
+ 

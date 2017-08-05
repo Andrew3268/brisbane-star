@@ -1,0 +1,48 @@
+<div class="container">
+ <img class ="banner_card" src="<%= @banner.img %>" width="100%">
+ <div class="card_text">
+  	<h1><%= @banner.title %></h1>
+  	<p><%= @banner.intro %></p>
+ </div>
+ <span class="star-rating">
+   <% 1.upto(5) do |i| %>
+     <% if i == @banner.avg.round(0) %>
+       <i class="on"></i>
+     <% else %>
+       <i></i>
+     <% end %>
+   <% end %>
+ </span>
+ <p id="count"><%= @banner.avg.round(1) %>점 (<%= @banner.comments.count %>명)</p>
+ <div class="container_button"><a href="/home/detail/<%= @banner.id %>">자세히 보기</a></div>
+</div><br>
+
+<div class="list_container">
+ <% @stores.each do |store| %>
+  <div class="list_card">
+    <h3><%= store.title %></h3>
+   	<img src="<%= store.img %>" width="100%">		
+   	<p><%= store.intro %></p>
+   	
+   	<div class="list-star">
+     <span class="star-rating small">
+   	  <% 1.upto(5) do |i| %>
+   	    <% if i == store.avg.round(0) %>
+   	      <i class="on"></i>
+   	    <% else %>
+   	      <i></i>
+   	    <% end %>
+   	  <% end %>
+   	 </div>
+   	 
+   	<p id="count" class="pp"><%= store.avg.round(1) %>점 (<%= store.comments.count %>명)</p>
+   	<div class="list_card_button"><a href="/home/detail/<%= store.id %>">자세히 보기</a></div>
+   	<% if user_signed_in? and current_user.admin == true %>
+    	<div class="alink">
+      	<a href="/home/destroy/<%= store.id %>">삭제</a>
+      	<a href="/home/edit/<%= store.id %>">수정</a>
+     </div>
+    <% end %>
+  </div>
+ <% end %>
+</div>
