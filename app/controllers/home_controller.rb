@@ -58,4 +58,13 @@ class HomeController < ApplicationController
     shop.save
     redirect_to '/'
   end
+  
+  def write
+    comments = Comment.new(comment :params[:msg])
+     if comments.save
+        redirect_to '/home/detail'
+     else
+        render :text => comments.errors.messages[:msg]
+     end
+  end
 end

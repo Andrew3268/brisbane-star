@@ -1,30 +1,54 @@
-<div class="container">
-  <img class ="banner_card" src="<%= @store.img %>" width="100%">
-  <div class="card_text">
-  	<h1><%= @store.title %></h1>
-  	<p><%= @store.intro %></p>
-  	<p id="count"><%=@store.avg.round(1)%> 점 (<%=@store.comments.count%> 명)</p>
+<div class="detail_container">
+  
+  <div class="left-col">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, amet?</p>
   </div>
-  <%= form_tag "/home/review", method: "post" do %>
-  <input type="hidden" name="shop_id" value="<%= @store.id %>">
-  <span class="star-rating">
-    <input type="radio" name="rating" value="1"><i></i>
-    <input type="radio" name="rating" value="2"><i></i>
-    <input type="radio" name="rating" value="3"><i></i>
-    <input type="radio" name="rating" value="4"><i></i>
-    <input type="radio" name="rating" value="5"><i></i>
-  </span>
-  <div class="detail">
-     <div class="detail_form">
-       <input type="text" name="msg" placeholder="별점체크후 평가해주세요.">
-     </div>
+
+  <div class="container_box">
+    <img class ="banner_card" src="<%= @store.img %>" width="100%">
+    <div class="card_text">
+    	<h1><%= @store.title %></h1>
+    	<p><%= @store.intro %></p>
+    	<p id="count"><%=@store.avg.round(1)%> 점 (<%=@store.comments.count%> 명)</p>
+    </div>
+    <%= form_tag "/home/review", method: "post" do %>
+    <input type="hidden" name="shop_id" value="<%= @store.id %>">
+    <span class="star-rating">
+      <input type="radio" name="rating" value="1"><i></i>
+      <input type="radio" name="rating" value="2"><i></i>
+      <input type="radio" name="rating" value="3"><i></i>
+      <input type="radio" name="rating" value="4"><i></i>
+      <input type="radio" name="rating" value="5"><i></i>
+    </span>
+    <div class="detail">
+       <div class="detail_form">
+         <input type="text" name="msg" placeholder="별점체크후 평가해주세요.">
+       </div>
+    </div>
+    <div class="detail_button">
+      <button class="button">평가하기</button>
+    </div>
+    <% end %>
   </div>
-  <div class="detail_button">
-    <button class="button">평가하기</button>
+  
+  <div class="right-col">
+    <div class="right-map">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, cumque.</p>
+    </div>
+    <div class="right-adress_time">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore recusandae aut sed suscipit
+         eos. Perferendis temporibus error quae quas, fugit.
+      </p>
+    </div>
+    <div class="right-menu">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore recusandae aut sed suscipit
+         eos. Perferendis temporibus error quae quas, fugit.
+      </p>
+    </div>
   </div>
-  <% end %>
- </div>
-</div><br>
+
+  
+</div><br><br>
 
 
 <div class="review_section">
@@ -49,3 +73,5 @@
     <% end %>
   </div> 
 </div>
+
+
