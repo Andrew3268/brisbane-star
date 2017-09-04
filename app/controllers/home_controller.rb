@@ -28,12 +28,20 @@ class HomeController < ApplicationController
   
   
   def review
-    Comment.create(user_id: current_user.id,
-                   store_id: params[:shop_id].to_i,  
-                   score: params[:rating].to_i, 
-                   comment: params[:msg])
-    redirect_to :back
+    comment = Comment.new
+    comment.user_id = current_user.id
+    comment.store_id = params[:shop_id]
+    comment.score = params[:rating].to_i
+    comment.comment = params[:msg]
+      
+    if comment.save
+      redirect_to :back
+    else
+      flash[:error] = 'Please say something even though it tastes suck!!'
+      redirect_to :back
+    end
   end
+    
   
   def review_destroy
     Comment.destroy(params[:id])
@@ -58,13 +66,6 @@ class HomeController < ApplicationController
     shop.save
     redirect_to '/'
   end
-  
-  def write
-    comments = Comment.new(comment :params[:msg])
-     if comments.save
-        redirect_to '/home/detail'
-     else
-        render :text => comments.errors.messages[:msg]
-     end
-  end
 end
+
+

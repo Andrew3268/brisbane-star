@@ -2,17 +2,31 @@
 <html>
 <head>
   <title>Workspace</title>
+  
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
   
 <header>
   <div class="header_container">
+    
+    <!-- For access restricton to 'Upload' -->
     <% if flash[:warning] %>
-      <h4><%= flash[:warning] %></h4>
+     <script>
+      sweetAlert("Oops...", "<%= flash[:warning] %>", "error");
+     </script>
     <% end %>
+    
+    <!-- For comments blank error -->
+    <% if flash[:error] %>
+     <script>
+      sweetAlert("Oops...", "<%= flash[:error] %>", "error");
+     </script>
+    <% end %>
+    
     <h1> 평점 서비스 </h1>
     <span><a href="/">전체맛집 리스트</a></span>
     <% if user_signed_in? and current_user.admin == true %>

@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   get ':controller(/:action(/:id))'
   post ':controller(/:action(/:id))'
-
+  
+  
   root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

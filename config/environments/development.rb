@@ -1,4 +1,48 @@
 Rails.application.configure do
+  
+  # #devise : 이메일 인증 설정
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # ActionMailer::Base.smtp_settings = {
+  #   :address              => 'smtp.mailgun.org',
+  #   :domain               => 'sandboxe048c352141145548c7ce88213467120.mailgun.org',
+  #   :port                 => 587,
+  #   :user_name            => "postmaster@sandboxe048c352141145548c7ce88213467120.mailgun.org",
+  #   :password             => "97db19b0e509abf07ba2506309c8bd71",
+  #   :authentication       => 'login',
+  #   :enable_starttls_auto => true
+  # }
+   
+# config.action_mailer.delivery_method = :smtp 
+# config.action_mailer.smtp_settings = { 
+#     :authentication => :plain, 
+#     :address => "smtp.mailgun.org", 
+#     :port => 587, 
+#     :domain => "sandboxe048c352141145548c7ce88213467120.mailgun.org", 
+#     :user_name => "postmaster@sandboxe048c352141145548c7ce88213467120.mailgun.org", 
+#     :password => "97db19b0e509abf07ba2506309c8bd71" 
+  
+# }
+
+# config.action_mailer.default_url_options = {host:'https://brisbane-andrew3628.c9users.io/'}
+
+
+
+
+  #   config.action_mailer.default_url_options = { https://brisbane-andrew3628.c9users.io/}
+  #   config.action_mailer.delivery_method = :smtp
+  #   config.action_mailer.smtp_settings = {
+  #   port: 587,
+  #   address: "smtp.mailgun.org",
+  #   user_name: "postmaster@sandboxe048c352141145548c7ce88213467120.mailgun.org",
+  #   password: "97db19b0e509abf07ba2506309c8bd71",
+  #   domain: "sandboxe048c352141145548c7ce88213467120.mailgun.org",
+  #   authentication: :plain,
+  #   enable_starttls_auto: true
+  # }
+   
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -14,7 +58,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -38,4 +82,5 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  
 end

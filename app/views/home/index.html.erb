@@ -18,7 +18,7 @@
 </div><br>
 
 <div class="list_container">
- <% @stores.each do |store| %>
+ <% @stores.reverse.each do |store| %>
   <div class="list_card">
     <h3><%= store.title %></h3>
    	<img src="<%= store.img %>" width="100%">		
